@@ -1,12 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Superhero Phone Book</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-  <script src="app.js"></script>
-</head>
-<body>
-</body>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AngularJS Intro</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+    <script src="app.js" charset="utf-8"></script>
+  </head>
+  <body ng-app="superheroApp">
+    <section ng-controller="SuperherosController as vm">
+      <h1>Superhero List</h1>
+      <h2>{{vm.tickTockText}}</h2>
+      <ul>
+        <li ng-repeat="superhero in vm.superheros">
+          <input type="checkbox" ng-model="todo.completed">
+        <span ng-style="todo.completed ? {'background-color': 'green'} : {'background-color': 'red'}">
+        {{superhero.name}} |
+        {{superhero.phone_number}} |
+        {{superhero.comics_affilication}} |
+        {{superhero.url}} |
+         </span>
+        </li>
+      </ul>
+    </section>
+    <section ng-controller="SuperheroFormController as vm">
+      <h2>New Superhero</h2>
+      <label for="name-input">Title</label>
+      <input type="text" id="name-input" ng-model="vm.newSuperhero">
+      <button ng-click="vm.addSuperhero()">Add</button>
+      <p>User input: {{vm.newSuperhero}}</p>
+    </section>
+  </body>
 </html>
