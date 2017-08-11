@@ -8,26 +8,17 @@
   </head>
   <body ng-app="superheroApp">
     <section ng-controller="SuperherosController as vm">
+      <h1> search SuperHero Phonebook</h1>
+      <input type="text" ng-model="search"/>
       <h1>Superhero List</h1>
-      <h2>{{vm.tickTockText}}</h2>
       <ul>
-        <li ng-repeat="superhero in vm.superheros">
-          <input type="checkbox" ng-model="todo.completed">
-        <span ng-style="todo.completed ? {'background-color': 'green'} : {'background-color': 'red'}">
+        <li ng-repeat="superhero in vm.superheros| filter: search" ng-class='marvel' : superheros.affiliation === 'red', 'dc':  : superheros.affiliation === 'blue'>
         {{superhero.name}} |
         {{superhero.phone_number}} |
         {{superhero.comics_affilication}} |
         {{superhero.url}} |
-         </span>
         </li>
       </ul>
-    </section>
-    <section ng-controller="SuperheroFormController as vm">
-      <h2>New Superhero</h2>
-      <label for="name-input">Title</label>
-      <input type="text" id="name-input" ng-model="vm.newSuperhero">
-      <button ng-click="vm.addSuperhero()">Add</button>
-      <p>User input: {{vm.newSuperhero}}</p>
     </section>
   </body>
 </html>

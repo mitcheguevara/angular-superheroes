@@ -34,7 +34,7 @@
 
     function create (title) {
       superheros.push({
-        title: title,
+        name: name,
         completed: false
       })
     }
